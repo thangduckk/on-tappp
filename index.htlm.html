@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="vi" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ôn tập PTTC các HĐKD - 96 câu</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',system-ui,sans-serif}
+:root{--bg:#f1f5f9;--card:#fff;--text:#0f172a;--muted:#64748b;--primary:#4f46e5;--primary2:#7c3aed;
+--green:#16a34a;--greenbg:#dcfce7;--red:#dc2626;--redbg:#fee2e2;--border:#e2e8f0;--optbg:#f8fafc;--shadow:0 10px 30px rgba(2,6,23,.08)}
+[data-theme="dark"]{--bg:#0b1220;--card:#111a2e;--text:#e2e8f0;--muted:#94a3b8;--greenbg:rgba(22,163,74,.18);--redbg:rgba(220,38,38,.18);--border:#243147;--optbg:#16223c;--shadow:0 10px 30px rgba(0,0,0,.45)}
+body{background:var(--bg);color:var(--text);min-height:100vh}
+.wrap{max-width:840px;margin:0 auto;padding:20px 14px 60px}
+.topbar{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:16px}
+.brand{font-weight:800;font-size:17px;display:flex;align-items:center;gap:8px}
+.logo{width:34px;height:34px;border-radius:10px;background:linear-gradient(135deg,var(--primary),var(--primary2));display:flex;align-items:center;justify-content:center;color:#fff;font-size:16px}
+.ibtn{width:40px;height:40px;border-radius:12px;border:1px solid var(--border);background:var(--card);color:var(--text);cursor:pointer;font-size:17px}
+.card{background:var(--card);border:1px solid var(--border);border-radius:18px;box-shadow:var(--shadow);padding:24px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:none;cursor:pointer;font-weight:700;border-radius:14px;font-size:15px;padding:13px 24px;transition:.2s}
+.btn:disabled{opacity:.5;cursor:not-allowed}
+.bp{background:linear-gradient(135deg,var(--primary),var(--primary2));color:#fff;box-shadow:0 8px 20px rgba(79,70,229,.35)}
+.bp:hover:not(:disabled){transform:translateY(-2px)}
+.bg2{background:var(--optbg);color:var(--text);border:1px solid var(--border)}
+.bg2:hover:not(:disabled){border-color:var(--primary)}
+.chip{display:inline-flex;align-items:center;gap:6px;background:var(--optbg);border:1px solid var(--border);border-radius:999px;padding:6px 13px;font-size:13px;font-weight:600;color:var(--muted)}
+.center{text-align:center}
+h1{font-size:25px;margin:14px 0 8px}
+.sub{color:var(--muted);line-height:1.6;margin-bottom:20px}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:20px 0}
+.stat{background:var(--optbg);border:1px solid var(--border);border-radius:14px;padding:14px}
+.stat b{display:block;font-size:20px}
+.stat span{font-size:12px;color:var(--muted)}
+.pbar{height:10px;background:var(--optbg);border-radius:99px;overflow:hidden;margin:12px 0 18px}
+.pbar div{height:100%;background:linear-gradient(90deg,var(--primary),var(--primary2));border-radius:99px;transition:width .4s}
+.qmeta{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:14px}
+.badge{font-size:12px;font-weight:700;padding:5px 12px;border-radius:999px}
+.badge.tb{background:#dbeafe;color:#1d4ed8}.badge.k{background:#fef3c7;color:#b45309}
+[data-theme="dark"] .badge.tb{background:rgba(29,78,216,.25);color:#93c5fd}
+[data-theme="dark"] .badge.k{background:rgba(180,83,9,.25);color:#fcd34d}
+.qtext{font-size:16.5px;font-weight:600;line-height:1.6;margin-bottom:16px;white-space:pre-line}
+.q2{margin-top:12px}
+.twrap{overflow-x:auto;margin:12px 0;border:1px solid var(--border);border-radius:12px}
+table.qt{width:100%;min-width:430px;border-collapse:collapse;font-size:14px}
+table.qt th,table.qt td{border:1px solid var(--border);padding:8px 10px;text-align:center}
+table.qt th{background:var(--optbg);font-weight:700}
+table.qt td.tl{text-align:left;font-weight:600}
+.opt{display:flex;gap:12px;align-items:flex-start;width:100%;text-align:left;background:var(--optbg);border:2px solid var(--border);border-radius:14px;padding:13px 15px;margin-bottom:11px;cursor:pointer;font-size:15px;line-height:1.5;color:var(--text);transition:.15s}
+.opt:hover:not(:disabled){border-color:var(--primary)}
+.opt:disabled{cursor:default}
+.letter{flex:0 0 30px;height:30px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-weight:800;background:var(--card);border:1px solid var(--border)}
+.opt.correct{background:var(--greenbg);border-color:var(--green);color:var(--green)}
+.opt.correct .letter{background:var(--green);color:#fff;border-color:var(--green)}
+.opt.wrong{background:var(--redbg);border-color:var(--red);color:var(--red)}
+.opt.wrong .letter{background:var(--red);color:#fff;border-color:var(--red)}
+.fb{margin-top:4px;font-weight:700;padding:12px 16px;border-radius:12px;display:none}
+.fb.ok{display:block;background:var(--greenbg);color:var(--green)}
+.fb.no{display:block;background:var(--redbg);color:var(--red)}
+.nextrow{display:flex;justify-content:flex-end;margin-top:14px}
+.ring{position:relative;width:200px;height:200px;margin:0 auto 10px}
+.ring svg{transform:rotate(-90deg)}
+.ringbg{fill:none;stroke:var(--optbg);stroke-width:14}
+.ringfg{fill:none;stroke:url(#grad);stroke-width:14;stroke-linecap:round;transition:stroke-dashoffset .9s ease}
+.ringv{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ringv b{font-size:40px}.ringv span{font-size:13px;color:var(--muted)}
+.resgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:18px 0}
+.msg{font-size:16px;font-weight:600;margin:6px 0 4px}
+.btnrow{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:16px}
+.wltitle{text-align:left;margin:20px 0 10px;font-size:16px}
+.witem{border:1px solid var(--border);border-radius:14px;padding:14px;margin-bottom:11px;background:var(--optbg);text-align:left}
+.wq{font-weight:600;font-size:14px;margin-bottom:8px;line-height:1.5}
+.wa{font-size:13px;margin-top:4px}.wa.ok{color:var(--green);font-weight:700}.wa.no{color:var(--red);font-weight:700}
+.allok{color:var(--green);font-weight:700;margin-top:16px}
+.revcard{margin-bottom:14px}
+.rmeta{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px}
+.chip.cok{color:var(--green);border-color:var(--green)}.chip.cno{color:var(--red);border-color:var(--red)}
+.ropt{cursor:default}
+@media(max-width:600px){.stats{grid-template-columns:1fr 1fr}.resgrid{grid-template-columns:1fr 1fr}h1{font-size:21px}.card{padding:18px}}
+.hidden{display:none!important}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<div class="scr" id="scr-start">
+  <div class="topbar">
+    <div class="brand"><div class="logo">📚</div> PTTC HĐKD</div>
+    <button class="ibtn" id="thm1">🌙</button>
+  </div>
+  <div class="card center">
+    <div style="font-size:50px">📝</div>
+    <h1>Ôn tập Phân tích Tài chính các HĐKD</h1>
+    <p class="sub">Ngân hàng 96 câu trắc nghiệm — ĐH Kinh doanh và Công nghệ Hà Nội<br>Đúng hiện <b style="color:var(--green)">XANH</b> · Sai hiện <b style="color:var(--red)">ĐỎ</b> · Điểm thang 10 · Làm lại câu sai</p>
+    <div class="stats">
+      <div class="stat"><b>96</b><span>Tổng số câu</span></div>
+      <div class="stat"><b>58 + 38</b><span>Trung bình + Khó</span></div>
+      <div class="stat"><b>10</b><span>Thang điểm</span></div>
+    </div>
+    <p id="bestLine" style="color:var(--muted);font-weight:600;margin-bottom:16px">Chưa có lịch sử làm bài</p>
+    <div style="display:flex;gap:10px;flex-wrap:wrap;justify-content:center">
+      <button class="btn bp" id="btnStart">🚀 Bắt đầu làm bài</button>
+      <button class="btn bg2" id="btnTrainWrong">🔄 Luyện câu đã sai (0)</button>
+    </div>
+  </div>
+</div>
+
+<div class="scr hidden" id="scr-quiz">
+  <div class="topbar">
+    <div class="brand"><div class="logo">📚</div> PTTC HĐKD</div>
+    <div style="display:flex;gap:8px">
+      <button class="ibtn" id="thm2">🌙</button>
+      <button class="ibtn" id="btnExit">✖</button>
+    </div>
+  </div>
+  <div class="card">
+    <div class="qmeta">
+      <span class="chip" id="qCount">Câu 1/96</span>
+      <span class="badge tb" id="qLvl">TRUNG BÌNH</span>
+      <span class="chip" id="qOK">Đúng: 0</span>
+      <span class="chip" id="qTimer">⏱ 00:00</span>
+    </div>
+    <div class="pbar"><div id="pFill" style="width:0%"></div></div>
+    <div class="qtext" id="qText"></div>
+    <div id="optBox"></div>
+    <div class="fb" id="fb"></div>
+    <div class="nextrow"><button class="btn bp hidden" id="btnNext">Câu tiếp theo →</button></div>
+  </div>
+</div>
+
+<div class="scr hidden" id="scr-result">
+  <div class="topbar">
+    <div class="brand"><div class="logo">📚</div> Kết quả</div>
+    <button class="ibtn" id="thm3">🌙</button>
+  </div>
+  <div class="card center">
+    <div class="ring">
+      <svg width="200" height="200">
+        <circle cx="100" cy="100" r="80" class="ringbg"/>
+        <circle id="ringFill" cx="100" cy="100" r="80" class="ringfg" stroke-dasharray="503" stroke-dashoffset="503"/>
+        <defs><linearGradient id="grad"><stop offset="0%" stop-color="#4f46e5"/><stop offset="100%" stop-color="#7c3aed"/></linearGradient></defs>
+      </svg>
+      <div class="ringv"><b id="rPoint">0</b><span>điểm / 10</span></div>
+    </div>
+    <p class="chip" id="rSub">Đúng 0/96 câu</p>
+    <p class="msg" id="rMsg"></p>
+    <div class="resgrid">
+      <div class="stat"><b id="rC" style="color:var(--green)">0</b><span>Câu đúng</span></div>
+      <div class="stat"><b id="rW" style="color:var(--red)">0</b><span>Câu sai</span></div>
+      <div class="stat"><b id="rA">0%</b><span>Chính xác</span></div>
+      <div class="stat"><b id="rT">00:00</b><span>Thời gian</span></div>
+    </div>
+    <div class="btnrow">
+      <button class="btn bp" id="btnRedoWrong">🔄 Làm lại câu sai</button>
+      <button class="btn bg2" id="btnRetryAll">📝 Làm lại toàn bộ</button>
+      <button class="btn bg2" id="btnReview">👁 Xem lại bài làm</button>
+    </div>
+    <div id="wrongList"></div>
+  </div>
+</div>
+
+<div class="scr hidden" id="scr-review">
+  <div class="topbar">
+    <div class="brand"><div class="logo">👁</div> Xem lại bài làm</div>
+    <button class="ibtn" id="btnBack">↩</button>
+  </div>
+  <div id="reviewBox"></div>
+</div>
+
+</div>
+<script>
+var LT=["A","B","C","D"];
+
+/* ===== BẢNG SỐ LIỆU (tách riêng để không vỡ) ===== */
+var TB73={head:["Chỉ tiêu","Năm N","Năm N+1","Năm N+2"],rows:[["1. Tài sản ngắn hạn","780","900","1.250"],["2. Nợ ngắn hạn","400","500","700"]]};
+var TB92={head:["Chỉ tiêu","Đầu năm N","Cuối năm N","Chênh lệch cuối năm N với đầu năm N"],rows:[["1. Hệ số thanh toán tổng quát","1,6","1,7","+0,1"],["2. Hệ số thanh toán hiện thời","0,7","0,8","+0,1"],["3. Hệ số thanh toán nhanh","0,2","0,3","+0,1"]]};
+var TB93={head:["Chỉ tiêu","Đầu năm N","Cuối năm N","Chênh lệch cuối năm N với đầu năm N"],rows:[["1. Hệ số nợ trên tài sản","0,6","0,7","+0,1"],["2. Hệ số thu hồi nợ","36","30","-6"],["3. Thời hạn thu hồi nợ (ngày)","10","12","2"]]};
+var TB94={head:["Chỉ tiêu","Năm N-1","Năm N","Chênh lệch năm N với năm N-1"],rows:[["1. Hệ số thanh toán lãi vay","2,5","3","+0,5"],["2. Hệ số quay vòng hàng tồn kho","20","30","+10"],["3. Thời hạn quay vòng hàng tồn kho (ngày)","18","12","-6"]]};
+var TB95={head:["Chỉ tiêu","Năm N-1","Năm N",{t:"Chênh lệch năm N so với năm N-1",s:2}],sub:["","","","Giá trị","Tỷ lệ"],rows:[["1. Doanh thu thuần bán hàng","2.000","2.500","500","25%"],["2. Giá vốn hàng bán","1.400","1.890","490","35%"],["3. Chi phí bán hàng","200","150","(50)","(25%)"],["4. Chi phí quản lý doanh nghiệp","100","120","20","20%"],["5. Lợi nhuận bán hàng","300","340","40","13,3%"]]};
+var TB96={head:["Chỉ tiêu","Năm N-1","Năm N",{t:"Chênh lệch năm N so với năm N-1",s:2}],sub:["","","","Giá trị","Tỷ lệ"],rows:[["1. Doanh thu thuần bán hàng","2.000","1.500","(500)","(25%)"],["2. Giá vốn hàng bán","1.400","1.000","(400)","(28,6%)"],["3. Chi phí bán hàng","300","250","(50)","(16,7%)"],["4. Chi phí quản lý doanh nghiệp","200","100","(100)","(50%)"],["5. Lợi nhuận bán hàng","100","150","50","50%"]]};
+
+/* ===== 96 CÂU HỎI (a: 0=A, 1=B, 2=C, 3=D | s: 0=TB, 1=Khó) ===== */
+var QUESTIONS=[
+{t:"Nhiệm vụ nào sau đây không phải là nhiệm vụ của phân tích tài chính doanh nghiệp?",o:["Phản ánh, ghi chép các nghiệp vụ kinh tế phát sinh","Đánh giá các hiện tượng, kết quả kinh tế","Xác định, chỉ rõ các nguyên nhân và tính các nhân tố ảnh hưởng","Đề xuất, kiến nghị các giải pháp"],a:0,s:0},
+{t:"Phương pháp phân tích TCDN nào sau đây xác định mức độ ảnh hưởng của từng nhân tố đến kết quả kinh tế?",o:["Phương pháp phân chia","Phương pháp thay thế liên hoàn","Phương pháp so sánh","Phương pháp đồ thị, đồ biểu"],a:1,s:0},
+{t:"Phương pháp phân tích TCDN nào sau đây không xác định mức độ ảnh hưởng của từng nhân tố đến kết quả kinh tế?",o:["Phương pháp thay thế liên hoàn","Phương pháp so sánh","Phương pháp số chênh lệch","Phương pháp cân đối"],a:1,s:0},
+{t:"Giai đoạn nào sau đây không thuộc giai đoạn của phân tích tài chính?",o:["Giai đoạn lập kế hoạch phân tích","Giai đoạn sưu tầm tài liệu","Giai đoạn thực hiện phân tích","Giai đoạn phát hiện các sai sót"],a:3,s:0},
+{t:"Chức năng nào sau đây không thuộc chức năng của phân tích tài chính doanh nghiệp?",o:["Chức năng đánh giá","Chức năng dự báo","Chức năng điều chỉnh","Chức năng phân phối"],a:3,s:0},
+{t:"Giải pháp nào dưới đây được áp dụng để tăng ROA?",o:["Tăng sử dụng nợ vay","Tăng hiệu suất sử dụng tài sản","Thay đổi kết cấu mặt hàng sản xuất","Tăng cường vốn chủ sở hữu"],a:1,s:0},
+{t:"Giải pháp nào dưới đây được áp dụng để tăng ROE?",o:["Thay đổi kết cấu mặt hàng sản xuất","Điều chỉnh chất lượng sản phẩm","Điều chỉnh mức hạ giá thành đơn vị sản phẩm","Điều chỉnh cơ cấu nguồn vốn giữa tỷ lệ nợ vay và vốn chủ sở hữu"],a:3,s:0},
+{t:"Chi phí nguyên vật liệu trực tiếp trong giá thành sản xuất sản phẩm chịu tác động của nhân tố nào sau đây?",o:["Mức hao hụt về vật liệu nhập kho","Giá vật liệu xuất dùng","Năng suất lao động của công nhân sản xuất trực tiếp","Số lượng công nhân sản xuất"],a:1,s:0},
+{t:"Chi phí quản lý doanh nghiệp chịu sự tác động của nhân tố nào dưới đây?",o:["Chi phí khấu hao cửa hàng, quầy hàng","Chi phí về tiền lương của bộ phận kế toán","Chi phí dịch vụ mua ngoài phục vụ cho sản xuất","Chi phí quảng cáo hàng bán"],a:1,s:0},
+{t:"Trong nội dung phân tích kết quả hoạt động kinh doanh, cần thiết phải phân tích nội dung chủ yếu nào sau đây?",o:["Phân tích lợi nhuận của từng mặt hàng","Phân tích lợi nhuận bán hàng và cung cấp dịch vụ","Phân tích kết cấu mặt hàng sản xuất","Phân tích kết cấu chi phí"],a:1,s:0},
+{t:"Nhân tố nào dưới đây không tác động trực tiếp đến tổng lợi nhuận trước thuế?",o:["Doanh thu bán hàng và cung cấp dịch vụ","Chi phí tài chính","Tỷ suất chi phí","Giá vốn của hàng xuất bán"],a:2,s:0},
+{t:"Tổng lợi nhuận thuần từ hoạt động kinh doanh không chịu tác động trực tiếp của nhân tố nào dưới đây?",o:["Giá vốn của hàng xuất bán","Chi phí bán hàng","Chi phí quản lý doanh nghiệp","Chi phí khác"],a:3,s:0},
+{t:"Nhân tố nào dưới đây không tác động trực tiếp đến tổng số lợi nhuận thuần từ hoạt động kinh doanh?",o:["Doanh thu hoạt động tài chính","Doanh thu thuần","Thu nhập khác","Doanh thu bán hàng và cung cấp dịch vụ"],a:2,s:0},
+{t:"Lợi nhuận thuần từ hoạt động kinh doanh chịu sự tác động chủ yếu của nhân tố nào dưới đây?",o:["Thu nhập khác và chi phí khác","Thu nhập khác","Giá vốn của hàng xuất bán","Chi phí khác"],a:2,s:0},
+{t:"Lợi nhuận bán hàng chịu sự tác động chủ yếu của nhân tố nào dưới đây?",o:["Doanh thu thuần từ bán hàng và cung cấp dịch vụ","Doanh thu hoạt động tài chính","Thu nhập khác","Chi phí tài chính"],a:0,s:0},
+{t:"Nhân tố nào dưới đây không tác động trực tiếp đến lợi nhuận bán hàng?",o:["Doanh thu thuần từ bán hàng và cung cấp dịch vụ","Doanh thu hoạt động tài chính","Giá vốn của hàng xuất bán","Chi phí bán hàng phân bổ cho hàng xuất bán"],a:1,s:0},
+{t:"Chi phí nhân công trực tiếp trong giá thành sản xuất sản phẩm chịu tác động của nhân tố nào sau đây?",o:["Năng suất lao động của công nhân sản xuất trực tiếp","Giá vật liệu mua vào","Mức hao hụt về vật liệu nhập kho","Giá trị phế liệu thải loại"],a:0,s:0},
+{t:"Xét về mức độ ảnh hưởng, nhân tố mức tiêu hao về vật liệu ảnh hưởng như thế nào đến khoản chi vật liệu trong giá thành sản xuất sản phẩm?",o:["Ảnh hưởng thuận chiều","Ảnh hưởng nghịch chiều","Ảnh hưởng tỷ lệ thuận","Ảnh hưởng tỷ lệ nghịch"],a:0,s:0},
+{t:"Xét về mức độ, nhân tố giá vật liệu xuất dùng ảnh hưởng như thế nào đến khoản chi vật liệu trong giá thành sản xuất sản phẩm?",o:["Ảnh hưởng thuận chiều","Ảnh hưởng nghịch chiều","Ảnh hưởng tỷ lệ thuận","Ảnh hưởng tỷ lệ nghịch"],a:0,s:0},
+{t:"Biện pháp quan trọng nào sau đây để giảm được mức tiêu hao nguyên vật liệu?",o:["Cải tiến mẫu mã sản phẩm","Giảm giá vật liệu mua vào","Sử dụng vật liệu rẻ tiền để thay thế","Giảm mức hao hụt vật liệu trong khi thu mua vật liệu"],a:0,s:0},
+{t:"Nhân tố nào sau đây ảnh hưởng đến chi phí bán hàng?",o:["Chi phí trích lập dự phòng nợ phải thu khó đòi","Chi phí về hoa hồng môi giới hàng bán","Tiền thuê môn bài","Chi phí khấu hao TSCĐ phục vụ quản lý doanh nghiệp"],a:1,s:0},
+{t:"Nguyên nhân nào dưới đây được đánh giá là nguyên nhân chủ quan ảnh hưởng đến doanh thu bán hàng?",o:["Nguyên nhân thuộc về bản thân doanh nghiệp","Nguyên nhân thuộc về người mua","Nguyên nhân thuộc nhà nước","Nguyên nhân thuộc đối thủ cạnh tranh"],a:0,s:0},
+{t:"Xét về mức độ, khối lượng (số lượng) hàng hoá bán ra ảnh hưởng như thế nào đến lợi nhuận bán hàng?",o:["Ảnh hưởng thuận chiều","Ảnh hưởng tỷ lệ thuận","Ảnh hưởng nghịch chiều","Ảnh hưởng tỷ lệ nghịch"],a:0,s:0},
+{t:"Nhân tố nào sau đây ảnh hưởng đến chi phí tài chính?",o:["Chi phí phát hành trái phiếu","Chi phí lãi vay","Chi phí thuê văn phòng","Chi phí thu hồi công nợ"],a:1,s:0},
+{t:"Xét về mức độ, kết cấu mặt hàng bán ra ảnh hưởng như thế nào đến lợi nhuận bán hàng?",o:["Ảnh hưởng thuận chiều","Ảnh hưởng tỷ lệ thuận","Vừa thuận chiều, vừa nghịch chiều","Không ảnh hưởng đến lợi nhuận bán hàng"],a:2,s:0},
+{t:"Doanh thu hoạt động tài chính chịu sự tác động của nhân tố nào dưới đây?",o:["Chiết khấu thanh toán cho người mua hàng của doanh nghiệp","Chiết khấu thương mại cho người mua hàng của doanh nghiệp","Chiết khấu thanh toán được hưởng khi doanh nghiệp mua hàng","Khoản giảm giá hàng bán"],a:2,s:0},
+{t:"Số lượng sản phẩm bán ra chịu sự ảnh hưởng trực tiếp của nhân tố nào dưới đây?",o:["Chất lượng sản phẩm","Chi phí quản lý doanh nghiệp","Chính sách mua hàng","Chiết khấu thanh toán cho khách hàng"],a:0,s:0},
+{t:"Doanh thu bán hàng chịu sự ảnh hưởng của nhân tố nào dưới đây?",o:["Chính sách mua hàng","Chính sách bán hàng","Chiết khấu thanh toán cho khách hàng","Chi phí dịch vụ mua ngoài"],a:1,s:0},
+{t:"Thông tin của phân tích tình hình tài chính doanh nghiệp được sự quan tâm chủ yếu của đối tượng nào dưới đây?",o:["Người mua hàng","Các nhà đầu tư, các nhà cho vay","Các cơ quan quản lý nhà nước thuộc đơn vị hành chính sự nghiệp","Người bán hàng"],a:1,s:0},
+{t:"Để phân tích tình hình tài chính doanh nghiệp, người ta phân tích nội dung chủ yếu nào dưới đây?",o:["Phân tích tình hình tài sản và nguồn vốn","Phân tích tình hình tổ chức sản xuất kinh doanh","Phân tích đánh giá kết quả lao động","Phân tích đánh giá việc lựa chọn nhà cung cấp"],a:0,s:0},
+{t:"Để phân tích, đánh giá thực trạng tình hình tài chính doanh nghiệp, cần thiết phải phân tích nội dung chủ yếu nào dưới đây?",o:["Phân tích tình hình lao động","Phân tích rủi ro tài chính","Phân tích môi trường kinh doanh","Phân tích người mua hàng"],a:1,s:0},
+{t:"Chỉ tiêu nào dưới đây ảnh hưởng đến khả năng thanh toán tổng quát của doanh nghiệp?",o:["Tài sản ngắn hạn","Tài sản dài hạn","Nợ phải trả","Vốn chủ sở hữu"],a:2,s:0},
+{t:"Nếu lượng dự trữ hàng tồn kho quá mức cần thiết sẽ gây ra tác động tiêu cực nào cho doanh nghiệp?",o:["Tăng chi phí quản lý doanh nghiệp","Tăng chi phí bảo quản vật tư hàng hóa","Tăng chi phí bán hàng","Tăng chi phí khác"],a:1,s:0},
+{t:"Chỉ tiêu nào dưới đây ảnh hưởng đến khả năng thanh toán hiện thời của doanh nghiệp?",o:["Tài sản dài hạn","Vốn chủ sở hữu","Tài sản ngắn hạn","Nợ phải trả"],a:2,s:0},
+{t:"Chỉ tiêu nào dưới đây ảnh hưởng đến khả năng thanh toán nhanh của doanh nghiệp?",o:["Vay dài hạn","Hàng tồn kho","Tiền và tương đương tiền","Vốn chủ sở hữu"],a:2,s:0},
+{t:"Khi phân tích nợ phải trả, cần phân tích nội dung nào là chủ yếu?",o:["Nợ phải thu ngắn hạn và dài hạn","Nợ phải trả ngắn hạn và dài hạn","Vốn chủ sở hữu","Tài sản ngắn hạn và dài hạn"],a:1,s:0},
+{t:"Khi phân tích nguồn vốn chủ sở hữu, cần phân tích nội dung chủ yếu nào sau đây?",o:["Vốn góp của chủ sở hữu","Nguồn vốn tín dụng","Nguồn vốn đi chiếm dụng","Nguồn vốn vay"],a:0,s:0},
+{t:"Để tiến hành phân tích tình hình đầu tư và nguồn tự tài trợ, cần phân tích nội dung chủ yếu nào sau đây?",o:["Phân tích, đánh giá khái quát và đánh giá cụ thể tình hình đầu tư","Phân tích, đánh giá môi trường đầu tư","Phân tích đánh giá chính sách đầu tư","Phân tích môi trường kinh doanh"],a:0,s:0},
+{t:"Để đánh giá khái quát tình hình đầu tư, cần đánh giá nội dung chủ yếu nào sau đây?",o:["Đánh giá về hướng đầu tư (đầu tư vào đâu)","Đánh giá hiệu quả đầu tư","Đánh giá về thời hạn thu hồi vốn đầu tư","Đánh giá tỷ suất lợi nhuận trên vốn đầu tư"],a:0,s:0},
+{t:"Tỷ suất nào dưới đây được sử dụng để đánh giá cụ thể tình hình đầu tư?",o:["Tỷ suất đầu tư tài chính","Tỷ suất lợi nhuận trên vốn đầu tư","Tỷ suất vốn đầu tư trên vốn chủ sở hữu","Tỷ suất lợi nhuận trên vốn đầu tư tài chính ngắn hạn và dài hạn"],a:0,s:0},
+{t:"Chỉ tiêu nào dưới đây không được sử dụng để xác định tỷ suất đầu tư tài chính?",o:["Tổng tài sản","Tài sản ngắn hạn","Đầu tư tài chính ngắn hạn","Đầu tư tài chính dài hạn"],a:1,s:0},
+{t:"Chỉ tiêu nào dưới đây không được sử dụng để xác định tỷ suất đầu tư về TSCĐ hữu hình?",o:["Tổng tài sản cố định và đầu tư dài hạn","Tổng tài sản","TSCĐ hữu hình","Chi phí XDCB dở dang"],a:0,s:0},
+{t:"Chỉ tiêu nào dưới đây không được sử dụng để xác định tỷ suất tự tài trợ cho đầu tư tài chính?",o:["Nguồn vốn chủ sở hữu","Tổng nguồn vốn","Đầu tư tài chính ngắn hạn","Đầu tư tài chính dài hạn"],a:1,s:0},
+{t:"Chỉ tiêu nào dưới đây không được sử dụng để xác định tỷ suất tự tài trợ về TSCĐ hữu hình?",o:["Tổng nguồn vốn","Nguồn vốn chủ sở hữu","TSCĐ hữu hình","Chi phí XDCB dở dang"],a:0,s:0},
+{t:"Chỉ tiêu nào dưới đây không được sử dụng để đánh giá hiệu quả của vốn đầu tư (nhìn từ quan điểm kinh tế) đối với các dự án đầu tư riêng biệt?",o:["Tỷ suất lợi nhuận trên vốn đầu tư","Tỷ suất đầu tư ngắn hạn và dài hạn","Thời hạn thu hồi vốn đầu tư","Mức nộp ngân sách do sử dụng vốn đầu tư"],a:1,s:0},
+{t:"Chỉ tiêu nào dưới đây ảnh hưởng đến khả năng thanh toán lãi vay của doanh nghiệp?",o:["Lợi nhuận sau thuế","Lợi nhuận trước thuế và lãi vay","Tổng tài sản","Nợ phải trả"],a:1,s:0},
+{t:"Để phân tích khả năng thanh toán tổng quát cần sử dụng chỉ tiêu nào dưới đây?",o:["Nợ phải trả","Nợ ngắn hạn","Tài sản ngắn hạn","Nợ dài hạn"],a:0,s:0},
+{t:"Để phân tích khả năng thanh toán nhanh không cần sử dụng chỉ tiêu nào dưới đây?",o:["Nợ ngắn hạn","Tài sản ngắn hạn","Hàng tồn kho","Nợ phải trả"],a:3,s:0},
+{t:"Để phân tích khả năng thanh toán hiện thời cần sử dụng chỉ tiêu nào dưới đây?",o:["Tài sản dài hạn","Khoản nhận ký quỹ","Nợ ngắn hạn","Nợ dài hạn"],a:2,s:0},
+{t:"Để phân tích khả năng thanh toán tức thời cần sử dụng chỉ tiêu dưới đây?",o:["Hàng tồn kho","Tiền và các khoản tương đương tiền","Các khoản phải thu ngắn hạn","Nợ dài hạn"],a:1,s:0},
+{t:"Chỉ tiêu nào dưới đây không được sử dụng để phân tích hiệu quả sử dụng vốn lưu động?",o:["Mức nộp ngân sách nhà nước","Mức doanh thu tính cho một đồng vốn lưu động","Số vốn tiết kiệm hay lãng phí vốn lưu động","Mức giá trị sản xuất tính cho một đồng vốn lưu động"],a:0,s:0},
+{t:"Nguyên nhân chủ yếu nào dưới đây ảnh hưởng đến mức tiêu hao về nguyên vật liệu?",o:["Do thiết kế sản phẩm","Do công tác an toàn lao động","Do sử dụng vật liệu thay thế","Do công tác mua hàng"],a:0,s:0},
+{t:"Nhân tố nào dưới đây tác động trực tiếp đến ROA của doanh nghiệp?",o:["Hệ số tài sản trên vốn CSH","Mức độ sử dụng nợ trong doanh nghiệp","Số vòng quay toàn bộ tài sản","Hệ số nợ trên tài sản"],a:2,s:0},
+{t:"Nhân tố nào dưới đây không tác động trực tiếp đến ROE của doanh nghiệp?",o:["Mức độ sử dụng nợ trong doanh nghiệp","Tỷ suất lợi nhuận doanh thu","Số vòng quay toàn bộ tài sản","Tỷ suất chi phí doanh thu"],a:3,s:0},
+{t:"Theo phương pháp phân tích tài chính Dupont thì chỉ tiêu tỷ suất lợi nhuận trên tổng tài sản (ROA) chịu sự ảnh hưởng của nhân tố nào dưới đây?",o:["Tỷ suất chi phí trên doanh thu","Tỷ suất lợi nhuận trên vốn lưu động","Tỷ suất lợi nhuận doanh thu","Tỷ suất lợi nhuận trên vốn cố định"],a:2,s:0},
+{t:"Theo phương pháp phân tích tài chính Dupont thì chỉ tiêu tỷ suất lợi nhuận trên tổng tài sản (ROA) chịu sự ảnh hưởng của nhân tố nào dưới đây?",o:["Số vòng quay vốn lưu động","Số vòng quay toàn bộ tài sản","Số vòng quay vốn cố định","Số vòng quay hàng tồn kho"],a:1,s:0},
+{t:"Theo phương pháp phân tích tài chính Dupont thì chỉ tiêu tỷ suất lợi nhuận trên vốn chủ sở hữu (ROE) chịu sự ảnh hưởng của nhân tố nào dưới đây?",o:["Tỷ suất giá vốn hàng bán trên doanh thu","Tỷ suất lợi nhuận trên tài sản (ROA)","Tỷ suất lợi nhuận trên vốn lưu động","Tỷ suất lợi nhuận trên vốn cố định"],a:1,s:0},
+{t:"Theo phương pháp phân tích tài chính Dupont thì chỉ tiêu tỷ suất lợi nhuận trên vốn chủ sở hữu (ROE) chịu sự ảnh hưởng của nhân tố nào dưới đây?",o:["Hệ số nợ ngắn hạn","Hệ số thanh toán lãi vay","Hệ số nợ","Hệ số thu hồi nợ"],a:2,s:0},
+{t:"Phương pháp số chênh lệch được sử dụng trong trường hợp nào?",o:["Các nhân tố ảnh hưởng có quan hệ tổng số với nhau để hình thành chỉ tiêu phân tích","Các nhân tố ảnh hưởng có quan hệ tích số với nhau để hình thành chỉ tiêu phân tích","Các nhân tố ảnh hưởng có quan hệ hiệu số với nhau để hình thành chỉ tiêu phân tích","Các nhân tố ảnh hưởng có quan hệ tổng số và thương số với nhau để hình thành chỉ tiêu phân tích"],a:1,s:1},
+{t:"Phương pháp thay thế liên hoàn không được sử dụng trong trường hợp nào?",o:["Các nhân tố ảnh hưởng có quan hệ tổng số với nhau để hình thành chỉ tiêu phân tích","Các nhân tố ảnh hưởng có quan hệ tích số với nhau để hình thành chỉ tiêu phân tích","Các nhân tố ảnh hưởng có quan hệ kết hợp cả tích và thương số với nhau để hình thành chỉ tiêu phân tích","Các nhân tố ảnh hưởng có quan hệ thương số với nhau để hình thành chỉ tiêu phân tích"],a:0,s:1},
+{t:"Phương pháp cân đối được sử dụng trong trường hợp nào?",o:["Các nhân tố ảnh hưởng có quan hệ thương số với nhau để hình thành chỉ tiêu phân tích","Các nhân tố ảnh hưởng có quan hệ tích số với nhau để hình thành chỉ tiêu phân tích","Các nhân tố ảnh hưởng có quan hệ kết hợp cả tích và thương số với nhau để hình thành chỉ tiêu phân tích","Các nhân tố ảnh hưởng có quan hệ tổng đại số với nhau để hình thành chỉ tiêu phân tích"],a:3,s:1},
+{t:"Nguyên nhân chủ yếu nào dưới đây ảnh hưởng đến giá mua của vật liệu xuất dùng?",o:["Do nguồn mua, phương thức mua","Do chất lượng của công tác sản xuất","Do chi phí bốc xếp thuê kho bãi","Do chi phí vận chuyển hàng mua"],a:0,s:1},
+{t:"Phương pháp so sánh không thể sử dụng trong trường hợp nào sau đây?",o:["Tồn tại một chỉ tiêu, đại lượng cần so sánh","Tồn tại ít nhất hai chỉ tiêu hoặc hai đại lượng cần so sánh","Các chỉ tiêu, các đại lượng khi so sánh với nhau có cùng một nội dung kinh tế","Các chỉ tiêu, các đại lượng khi so sánh với nhau có cùng một đơn vị đo lường"],a:0,s:1},
+{t:"Phương pháp phân tích tài chính Dupont được sử dụng để phân tích chỉ tiêu tài chính nào sau đây?",o:["ROE","RI","ROI","EPS"],a:0,s:1},
+{t:"Chỉ tiêu nào sau đây phản ánh hiệu quả sinh lời của tài sản?",o:["ROA","ROS","ROE","EBIT"],a:0,s:1},
+{t:"Để đánh giá sự biến động của chỉ tiêu cần phân tích, người ta sử dụng phương pháp nào?",o:["Phương pháp so sánh","Phương pháp số chênh lệch","Phương pháp thay thế liên hoàn","Phương pháp cân đối"],a:0,s:1},
+{t:"Chi phí sản xuất chung chịu sự tác động của nhân tố nào dưới đây?",o:["Chi phí nguyên vật liệu sử dụng để sản xuất ra sản phẩm","Chi phí tiền lương của công nhân sản xuất trực tiếp","Chi phí khấu hao TSCĐ phục vụ sản xuất ra sản phẩm","Chi phí khấu hao TSCĐ phục vụ quản lý doanh nghiệp"],a:2,s:1},
+{t:"Doanh nghiệp có hệ số khả năng thanh toán hiện thời là 1,2, phân tích nào sau đây là đúng?",o:["Giá trị tài sản ngắn hạn lớn hơn nợ ngắn hạn, doanh nghiệp có khả năng thanh toán các khoản nợ ngắn hạn","Giá trị tài sản dài hạn nhỏ hơn nguồn vốn dài hạn, doanh nghiệp không có khả năng thanh toán các khoản nợ dài hạn","Giá trị tài sản ngắn hạn nhỏ hơn nợ ngắn hạn, doanh nghiệp không có khả năng thanh toán các khoản nợ ngắn hạn","Giá trị tài sản dài hạn lớn hơn nguồn vốn dài hạn, doanh nghiệp có khả năng thanh toán các khoản nợ dài hạn"],a:0,s:1},
+{t:"Một doanh nghiệp có ROS = 8%. Điều này có nghĩa là:",o:["Cứ đưa 100 đồng tài sản vào SXKD, doanh nghiệp tạo ra 8 đồng lợi nhuận sau thuế","Trong 100 đồng doanh thu thuần bán hàng, doanh nghiệp tạo ra 8 đồng lợi nhuận sau thuế","Cứ đưa 100 đồng vốn chủ sở hữu vào SXKD, doanh nghiệp tạo ra 8 đồng lợi nhuận sau thuế","Trong 100 đồng doanh thu bán hàng, doanh nghiệp tạo ra 8 đồng doanh thu thuần"],a:1,s:1},
+{t:"Doanh nghiệp A có ROA = 10%, trong khi doanh nghiệp B có ROA = 6%. Nếu các yếu tố khác tương đương, nhận định nào sau đây phù hợp nhất?",o:["Doanh nghiệp A sử dụng tài sản hiệu quả hơn trong việc tạo ra lợi nhuận","Doanh nghiệp B sử dụng vốn chủ sở hữu hiệu quả hơn","Doanh nghiệp A chắc chắn có ROS cao hơn doanh nghiệp B","Doanh nghiệp B chắc chắn có mức lợi nhuận sau thuế cao hơn A"],a:0,s:1},
+{t:"Doanh nghiệp X có ROA = 8% nhưng ROE = 16%. Nhận định nào sau đây có khả năng giải thích phù hợp nhất?",o:["Doanh nghiệp không sử dụng nợ trong hoạt động kinh doanh","Doanh nghiệp sử dụng nợ (đòn bẩy tài chính) trong hoạt động kinh doanh, làm ROE cao hơn ROA","Doanh nghiệp chắc chắn có ROS rất cao","Doanh nghiệp có khả năng thanh toán ngắn hạn rất tốt"],a:1,s:1},
+{t:"Công ty có thể cải thiện khả năng thanh toán các khoản nợ ngắn hạn bằng cách nào sau đây?",o:["Giảm dự trữ hàng tồn kho","Tiếp tục vay ngắn hạn ngân hàng","Thu hồi các khoản nợ phải thu","Vay dài hạn lấy tiền để trả nợ ngắn hạn"],a:3,s:1},
+{t:"Công ty X có bảng số liệu sau: (Đơn vị tính: Triệu đồng)",tb:TB73,q2:"Hệ số thanh toán hiện thời bình quân ngành qua các năm là 1,7. Nhận xét nào sau đây là đúng?",o:["Năng lực thanh toán nợ ngắn hạn có xu hướng giảm qua các năm, luôn ở mức thấp hơn mức trung bình của ngành","Năng lực thanh toán nợ ngắn hạn có xu hướng giảm qua các năm, nhưng luôn ở mức cao hơn mức trung bình của ngành","Năng lực thanh toán nợ ngắn hạn có xu hướng tăng qua các năm và luôn ở mức cao hơn mức trung bình của ngành","Năng lực thanh toán nợ ngắn hạn có xu hướng tăng qua các năm, luôn ở mức thấp hơn mức trung bình của ngành"],a:1,s:1},
+{t:"Tại công ty X, có thông tin như sau: (Đơn vị tính: triệu đ)\n- Doanh thu thuần về bán hàng năm N là 120.000, năm N-1 là 90.000\nPhân tích nào sau đây là đúng?",o:["Doanh thu thuần về bán hàng năm N tăng 30.000 so với năm N-1 với tỷ lệ tăng là 33,33%, cho thấy doanh nghiệp đã đẩy mạnh tiêu thụ sản phẩm ra thị trường và tăng giá bán sản phẩm","Doanh thu thuần về bán hàng năm N giảm 30.000 so với năm N-1, với tỷ lệ giảm là 33,33%, cho thấy doanh nghiệp đã gặp khó khăn trong tiêu thụ sản phẩm","Doanh thu thuần về bán hàng năm N tăng 30.000 so với năm N-1, với tỷ lệ tăng là 25%, là do doanh nghiệp đã đẩy mạnh tiêu thụ sản phẩm ra thị trường và tăng giá bán sản phẩm","Doanh thu thuần về bán hàng năm N giảm 30.000 so với năm N-1, với tỷ lệ giảm là 25%, là do doanh nghiệp đã giảm giá bán sản phẩm"],a:0,s:1},
+{t:"Tại công ty X, có thông tin về tình hình doanh thu bán hàng như sau: (Đơn vị tính: triệu đ)\nNăm N-1: cửa hàng A: 60.000, cửa hàng B: 100.000, cửa hàng C: 240.000\nNăm N: cửa hàng A: 80.000, cửa hàng B: 110.000, cửa hàng C: 310.000\nPhân tích nào sau đây là đúng?",o:["Tỷ trọng doanh thu bán hàng của cửa hàng A trong tổng doanh thu năm N là 16%, chiếm tỷ trọng khá lớn trong tổng doanh thu của công ty","Tỷ trọng doanh thu bán hàng của cửa hàng A trong tổng doanh thu năm N là 26%, chiếm tỷ trọng khá lớn trong tổng doanh thu của công ty","Tỷ trọng doanh thu bán hàng của cửa hàng A trong tổng doanh thu năm N là 16%, chiếm tỷ trọng nhỏ trong tổng doanh thu của công ty","Tỷ trọng doanh thu bán hàng của cửa hàng A trong tổng doanh thu năm N là 20%, chiếm tỷ trọng nhỏ trong tổng doanh thu của công ty"],a:2,s:1},
+{t:"Tại công ty X, có thông tin về tình hình doanh thu bán hàng như sau: (Đơn vị tính: triệu đ)\nDoanh thu bán hàng năm N-1: 10.000, năm N: 12.000\nKhoản chiết khấu thương mại năm N-1: 300, năm N: 500\nTỷ lệ tăng/giảm doanh thu thuần bán hàng năm N so với năm N-1 là bao nhiêu?",o:["15%","15,65%","18%","18,56%"],a:3,s:1},
+{t:"Tại công ty X, có thông tin về tình hình doanh thu bán hàng như sau: (Đơn vị tính: triệu đ)\nDoanh thu bán hàng và cung cấp dịch vụ năm N-1: 10.000, năm N: 12.000\nKhoản chiết khấu thương mại năm N-1: 500, năm N: 650\nPhân tích nào sau đây là đúng?",o:["Chiết khấu thương mại năm N tăng 150 trđ so với năm N-1 với tỷ lệ tăng là 23,1% làm cho doanh thu thuần về bán hàng và cung cấp dịch vụ giảm 150 trđ","Chiết khấu thương mại năm N tăng 150 trđ so với năm N-1 với tỷ lệ tăng là 30% làm cho doanh thu thuần về bán hàng và cung cấp dịch vụ giảm 150 trđ","Chiết khấu thương mại năm N giảm 150 trđ so với năm N-1 với tỷ lệ giảm là 30% làm cho doanh thu thuần về bán hàng và cung cấp dịch vụ tăng 150 trđ","Chiết khấu thương mại năm N tăng 150 trđ so với năm N-1 với tỷ lệ tăng là 23,1% làm cho doanh thu thuần về bán hàng và cung cấp dịch vụ tăng 150 trđ"],a:1,s:1},
+{t:"Tại công ty X, có thông tin như sau: (Đơn vị tính: triệu đ)\n- Lợi nhuận từ hoạt động bán hàng và cung cấp dịch vụ năm N-1: 5.000, năm N: 4.300\n- Lợi nhuận từ hoạt động tài chính năm N-1: (300), năm N: (500)\n- Lợi nhuận khác năm N-1: 100, năm N: 150\nPhân tích nào sau đây là đúng?",o:["Lợi nhuận từ hoạt động bán hàng và cung cấp dịch vụ năm N giảm 700 trđ so với năm N-1 làm cho lợi nhuận trước thuế giảm 700 trđ","Lợi nhuận từ hoạt động bán hàng và cung cấp dịch vụ năm N tăng 700 trđ so với năm N-1 làm cho lợi nhuận trước thuế giảm 700 trđ","Lợi nhuận từ hoạt động bán hàng và cung cấp dịch vụ năm N giảm 700 trđ so với năm N-1 làm cho lợi nhuận trước thuế tăng 700 trđ","Lợi nhuận từ hoạt động bán hàng và cung cấp dịch vụ năm N tăng 700 trđ so với năm N-1 làm cho lợi nhuận trước thuế tăng 700 trđ"],a:0,s:1},
+{t:"Tại công ty X, có thông tin như sau: (Đơn vị tính: triệu đ)\n- Lợi nhuận từ hoạt động bán hàng và cung cấp dịch vụ năm N-1: 5.000, năm N: 4.300\n- Lợi nhuận từ hoạt động tài chính năm N-1: (500), năm N: (300)\n- Lợi nhuận khác năm N-1: 200, năm N: 150\nPhân tích nào sau đây là đúng?",o:["Khoản lỗ từ hoạt động tài chính năm N tăng 200 trđ so với năm N-1 làm cho lợi nhuận trước thuế tăng 200 trđ","Khoản lỗ từ hoạt động tài chính năm N giảm 200 trđ so với năm N-1 làm cho lợi nhuận trước thuế giảm 200 trđ","Khoản lỗ từ hoạt động tài chính năm N tăng 200 trđ so với năm N-1 làm cho lợi nhuận trước thuế giảm 200 trđ","Khoản lỗ từ hoạt động tài chính năm N giảm 200 trđ so với năm N-1 làm cho lợi nhuận trước thuế tăng 200 trđ"],a:3,s:1},
+{t:"Tại công ty X, có thông tin như sau: (Đơn vị tính: triệu đ)\n- Lợi nhuận từ hoạt động bán hàng và cung cấp dịch vụ năm N-1: 5.000, năm N: 4.300\n- Lợi nhuận từ hoạt động tài chính năm N-1: (500), năm N: (300)\n- Lợi nhuận khác năm N-1: 200, năm N: 150\nPhân tích nào sau đây là đúng?",o:["Lợi nhuận khác năm N giảm 50 trđ so với năm N-1 làm cho lợi nhuận trước thuế tăng 50 trđ","Lợi nhuận khác năm N giảm 50 trđ so với năm N-1 làm cho lợi nhuận trước thuế giảm 50 trđ","Lợi nhuận khác năm N tăng 50 trđ so với năm N làm cho lợi nhuận trước thuế giảm 50 trđ","Lợi nhuận khác năm N tăng 50 trđ so với năm N-1 làm cho lợi nhuận trước thuế tăng 50 trđ"],a:1,s:1},
+{t:"Tại công ty X, có thông tin như sau: (Đơn vị tính: triệu đ)\n- Doanh thu thuần về bán hàng và cung cấp dịch vụ năm N-1: 5.000, năm N: 4.300\n- Giá vốn hàng bán năm N-1: 3.700, năm N: 3.540\nPhân tích nào sau đây là đúng?",o:["Giá vốn hàng bán năm N tăng 160 trđ so với năm N-1 làm cho lợi nhuận từ hoạt động bán hàng và cung cấp dịch vụ giảm 160 trđ","Giá vốn hàng bán năm N tăng 160 trđ so với năm N-1 làm cho lợi nhuận từ hoạt động bán hàng và cung cấp dịch vụ tăng 160 trđ","Giá vốn hàng bán năm N giảm 160 trđ so với năm N-1 làm cho lợi nhuận từ hoạt động bán hàng và cung cấp dịch vụ giảm 160 trđ","Giá vốn hàng bán năm N giảm 160 trđ so với năm N-1 làm cho lợi nhuận từ hoạt động bán hàng và cung cấp dịch vụ tăng 160 trđ"],a:3,s:1},
+{t:"Tại công ty X, có thông tin như sau: (Đơn vị tính: 1000đ)\n- Số lượng hàng bán năm N-1: 300 SP, năm N: 400 SP\n- Lợi nhuận bán hàng đơn vị/SP năm N-1: 55, năm N: 48\nMức độ ảnh hưởng của lợi nhuận đơn vị đến lợi nhuận bán hàng được xác định và đánh giá như thế nào?",o:["Lợi nhuận bán hàng đơn vị giảm 7/SP làm cho tổng lợi nhuận bán hàng giảm 2.800","Lợi nhuận bán hàng đơn vị giảm 7/SP làm cho tổng lợi nhuận bán hàng giảm 2.600","Lợi nhuận bán hàng đơn vị giảm 7/SP làm cho tổng lợi nhuận bán hàng giảm 3.500","Lợi nhuận bán hàng đơn vị giảm 7/SP làm cho tổng lợi nhuận bán hàng giảm 3.000"],a:0,s:1},
+{t:"Tại công ty X, có thông tin như sau: (Đơn vị tính: 1000đ)\n- Tổng LNBH kỳ kế hoạch là 16.500, kỳ thực tế là 19.200\n- Tỷ lệ sản lượng kỳ thực tế so với kỳ kế hoạch là 1,05\nMức độ ảnh hưởng của sản lượng tiêu thụ đến lợi nhuận bán hàng được xác định là bao nhiêu?",o:["655.000","960.000","785.000","825.000"],a:3,s:1},
+{t:"Tại công ty X, có thông tin như sau: (Đơn vị tính: 1000đ)\n- Số lượng hàng bán năm N: SP A là 300 SP, sản phẩm B là 400 SP\n- Lợi nhuận bán hàng đơn vị/SP năm N-1: SP A là 55, sản phẩm B là 50\n- Tỷ lệ sản lượng năm N so với năm N-1 là 1,05\n- Tổng LNBH năm N-1 là 40.100\nMức độ ảnh hưởng của kết cấu mặt hàng tiêu thụ đến lợi nhuận bán hàng được xác định là bao nhiêu?",o:["(5.705)","(5.505)","(5.605)","(5.305)"],a:2,s:1},
+{t:"Tại công ty X, có thông tin như sau: (Đơn vị tính: 1000đ)\n- Số lượng hàng bán năm N: SP A là 300 SP, sản phẩm B là 400 SP\n- Giá bán đơn vị/SP năm N-1: SP A là 120, sản phẩm B là 100\n- Giá bán đơn vị/SP năm N: SP A là 130, sản phẩm B là 120\nMức độ ảnh hưởng của đơn giá bán sản phẩm đến lợi nhuận bán hàng được xác định là bao nhiêu?",o:["16.200","14.000","11.000","12.300"],a:2,s:1},
+{t:"Tại công ty X, có thông tin như sau: (Đơn vị tính: triệu đ)\n- Tỷ suất lợi nhuận sau thuế trên doanh thu thuần năm N-1 là 5%\n- Tỷ suất lợi nhuận sau thuế trên doanh thu thuần năm N là 6,5%\nPhân tích nào sau đây là đúng?",o:["Tỷ suất lợi nhuận sau thuế trên doanh thu thuần năm N tăng 2,5% so với năm N-1. Điều này cho thấy doanh nghiệp đã nỗ lực để cải thiện tình hình doanh thu, đồng thời tiết kiệm các khoản chi phí trong sản xuất kinh doanh","Tỷ suất lợi nhuận sau thuế trên doanh thu thuần năm N giảm 1,5% so với năm N-1. Điều này cho thấy doanh nghiệp chưa nỗ lực để cải thiện tình hình doanh thu, đồng thời chưa tiết kiệm các khoản chi phí trong sản xuất kinh doanh","Tỷ suất lợi nhuận sau thuế trên doanh thu thuần năm N tăng 1,5% so với năm N-1. Điều này cho thấy doanh nghiệp đã nỗ lực để cải thiện tình hình doanh thu, đồng thời chưa tiết kiệm các khoản chi phí trong sản xuất kinh doanh","Tỷ suất lợi nhuận sau thuế trên doanh thu thuần năm N giảm 2,5% so với năm N-1. Điều này cho thấy doanh nghiệp chưa nỗ lực để cải thiện tình hình doanh thu, đồng thời tiết kiệm các khoản chi phí trong sản xuất kinh doanh"],a:2,s:1},
+{t:"Tại công ty X, có thông tin như sau: (Đơn vị tính: triệu đ)\n- Tỷ suất lợi nhuận trên vốn chủ sở hữu năm N là 14%, năm N-1 là 15,4%\nPhân tích nào sau đây là đúng?",o:["Tỷ suất lợi nhuận sau thuế trên vốn chủ sở hữu năm N tăng 1,4% so với năm N-1. Như vậy, với 100 đồng vốn chủ sở hữu đưa vào kinh doanh năm N thì tạo ra nhiều hơn 1,4 đồng lợi nhuận sau thuế so với năm N-1","Tỷ suất lợi nhuận sau thuế trên vốn chủ sở hữu năm N giảm 1,4% so với năm N-1. Như vậy, với 100 đồng vốn chủ sở hữu đưa vào kinh doanh năm N thì tạo ra nhiều hơn 1,4 đồng lợi nhuận sau thuế so với năm N-1","Tỷ suất lợi nhuận sau thuế trên vốn chủ sở hữu năm N tăng 1,4% so với năm N-1. Như vậy, với 100 đồng vốn chủ sở hữu đưa vào kinh doanh năm N thì tạo ra ít hơn 1,4 đồng lợi nhuận sau thuế so với năm N-1","Tỷ suất lợi nhuận sau thuế trên vốn chủ sở hữu năm N giảm 1,4% so với năm N-1. Như vậy, với 100 đồng vốn chủ sở hữu đưa vào kinh doanh năm N thì tạo ra ít hơn 1,4 đồng lợi nhuận sau thuế so với năm N-1"],a:3,s:1},
+{t:"Công ty X có hệ số thanh toán tổng quát năm N là 0,9, năm N+1 là 0,8. Phân tích nào sau đây là đúng?",o:["Hệ số thanh toán hiện thời đều rất thấp ở cả hai năm (đều nhỏ hơn 1) thể hiện khả năng thanh toán của Công ty đối với các khoản nợ ngắn hạn rất thấp và có xu hướng giảm (giảm 0,1 lần)","Hệ số thanh toán tổng quát đều rất thấp ở cả hai năm (đều nhỏ hơn 1) thể hiện khả năng thanh toán của Công ty đối với các khoản nợ phải trả rất thấp và có xu hướng giảm (giảm 0,1 lần)","Hệ số thanh toán tổng quát đều rất thấp ở cả hai năm (đều nhỏ hơn 1) thể hiện khả năng thanh toán của Công ty đối với các khoản nợ dài hạn rất thấp và có xu hướng giảm (giảm 0,1 lần)","Hệ số thanh toán nợ ngắn hạn đều rất thấp ở cả hai năm (đều nhỏ hơn 1) thể hiện khả năng thanh toán của Công ty đối với các khoản nợ người bán rất thấp và có xu hướng giảm (giảm 0,1 lần)"],a:1,s:1},
+{t:"Công ty X có hệ số thu hồi nợ năm N là 5, năm N+1 là 6. Đánh giá nào sau đây là đúng?",o:["Thể hiện Công ty thu hồi nợ năm N+1 chậm đi 1 lần so với năm N, rủi ro tài chính tăng lên","Thể hiện Công ty thu hồi nợ năm N+1 nhanh hơn 1 lần so với năm N, rủi ro tài chính giảm đi","Thể hiện hàng tồn kho của Công ty năm N+1 quay nhanh hơn 1 vòng so với năm N, rủi ro kinh doanh giảm đi","Thể hiện hàng tồn kho của Công ty năm N+1 quay chậm hơn 1 vòng so với năm N, rủi ro tài chính tăng lên"],a:1,s:1},
+{t:"Công ty X có hệ số quay vòng hàng tồn kho năm N là 6, năm N+1 là 5. Nhận xét nào sau đây là đúng?",o:["Thể hiện Công ty thu hồi nợ năm N+1 chậm đi 1 lần so với năm N, rủi ro tài chính tăng lên","Thể hiện Công ty thu hồi nợ năm N+1 nhanh hơn 1 lần so với năm N, rủi ro tài chính giảm đi","Thể hiện hàng tồn kho của Công ty năm N+1 quay nhanh hơn 1 vòng so với năm N, rủi ro tài chính giảm đi","Thể hiện hàng tồn kho của Công ty năm N+1 quay chậm hơn 1 vòng so với năm N, rủi ro tài chính tăng lên"],a:3,s:1},
+{t:"Công ty X có hệ số thanh toán hiện thời năm N là 1,5, năm N+1 là 1,8. Phân tích nào sau đây là đúng?",o:["Hệ số thanh toán hiện thời đều thấp ở cả hai năm thể hiện khả năng thanh toán của Công ty đối với các khoản nợ ngắn hạn thấp, mặc dù có xu hướng tăng (tăng 0,3 lần)","Hệ số thanh toán tổng quát đều khá cao ở cả hai năm (đều lớn hơn 1) thể hiện khả năng thanh toán của Công ty đối với các khoản nợ phải trả khá cao và có xu hướng tăng (tăng 0,3 lần)","Hệ số thanh toán hiện thời đều lớn hơn 1 ở cả hai năm thể hiện khả năng thanh toán của Công ty đối với các khoản nợ ngắn hạn khá tốt và có xu hướng tăng (tăng 0,3 lần)","Hệ số thanh toán tổng quát đều thấp ở cả hai năm, thể hiện khả năng thanh toán của Công ty đối với các khoản nợ người bán thấp và có xu hướng tăng (tăng 0,3 lần)"],a:2,s:1},
+{t:"Tại Công ty X có số liệu về phân tích tình hình tài chính của Công ty năm N như sau:",tb:TB92,q2:"Phân tích nào sau đây là đúng?",o:["Hệ số thanh toán tổng quát tăng 0,1, đều lớn hơn 1 cả ở thời điểm đầu năm và cuối năm N, cho thấy khả năng thanh toán các khoản nợ phải trả năm N tại công ty X khá tốt","Hệ số thanh toán hiện thời tăng 0,1, đều nhỏ hơn 1 cả ở thời điểm đầu năm và cuối năm N cho thấy khả năng thanh toán hiện thời năm N tại công ty X khá tốt","Hệ số thanh toán tổng quát tăng 0,1, đều lớn hơn 1 cả ở thời điểm đầu năm và cuối năm N, cho thấy Công ty không có khả năng thanh toán các khoản nợ phải trả","Hệ số thanh toán nhanh tăng 0,1, đều nhỏ hơn 0,5 cả ở thời điểm đầu năm và cuối năm N cho thấy khả năng thanh toán nhanh năm N tại công ty X khá tốt"],a:0,s:1},
+{t:"Tại Công ty X có số liệu về phân tích tình hình tài chính của Công ty năm N như sau:",tb:TB93,q2:"Đánh giá nào sau đây là đúng?",o:["Hệ số nợ trên tài sản tăng 0,1 cho thấy rủi ro tài chính giảm đi","Hệ số thu hồi nợ giảm 6 lần cho thấy rủi ro tài chính giảm đi","Thời hạn thu hồi nợ tăng 2 ngày cho thấy rủi ro tài chính tăng lên","Thời hạn thu hồi nợ tăng 2 ngày cho thấy rủi ro tài chính giảm đi"],a:2,s:1},
+{t:"Tại Công ty X có số liệu về phân tích tình hình tài chính của Công ty năm N-1 và năm N như sau:",tb:TB94,q2:"Đánh giá nào sau đây là đúng?",o:["Hệ số thanh toán lãi vay tăng 0,5 làm rủi ro tài chính tăng lên","Hệ số quay vòng hàng tồn kho tăng 10 vòng làm rủi ro tài chính tăng lên","Thời hạn quay vòng hàng tồn kho giảm 6 ngày làm rủi ro tài chính tăng lên","Thời hạn quay vòng hàng tồn kho giảm 6 ngày làm rủi ro tài chính giảm đi"],a:3,s:1},
+{t:"Tại Công ty X có bảng số liệu về phân tích kết quả bán hàng của Công ty năm N-1 và năm N như sau: (Đơn vị tính: triệu đồng)",tb:TB95,q2:"Phân tích nào sau đây là đúng?",o:["Tốc độ tăng của giá vốn hàng bán là 35%, cao hơn tốc độ tăng của doanh thu thuần bán hàng là 25% làm lợi nhuận bán hàng tăng","Doanh thu thuần bán hàng tăng 25%, trong khi chi phí bán hàng giảm 25%, đây là nguyên nhân chủ yếu làm lợi nhuận bán hàng tăng","Tốc độ tăng của chi phí quản lý doanh nghiệp là 20%, thấp hơn tốc độ tăng của doanh thu thuần bán hàng là 25% làm lợi nhuận bán hàng giảm","Chi phí bán hàng giảm 25%, doanh thu thuần bán hàng tăng 25%, đây là nguyên nhân chủ yếu làm lợi nhuận bán hàng giảm"],a:1,s:1},
+{t:"Tại Công ty X có bảng số liệu về phân tích kết quả bán hàng của Công ty năm N-1 và năm N như sau: (Đơn vị tính: triệu đồng)",tb:TB96,q2:"Phân tích nào sau đây là đúng?",o:["Giá vốn hàng bán giảm 400 triệu đồng với tỷ lệ giảm là 28,6%, cao hơn tốc độ giảm của doanh thu thuần bán hàng (25%) là nguyên nhân chính làm lợi nhuận bán hàng tăng","Chi phí quản lý doanh nghiệp giảm 100 triệu đồng với tỷ lệ giảm là 50%, trong khi doanh thu thuần giảm 500 triệu đồng với tỷ lệ giảm là 25% là nguyên nhân chính làm lợi nhuận bán hàng tăng","Chi phí bán hàng giảm 50 triệu với tỷ lệ giảm là 16,7%, thấp hơn tốc độ giảm của doanh thu thuần bán hàng (25%) làm lợi nhuận bán hàng tăng","Chi phí quản lý doanh nghiệp giảm 100 triệu đồng với tỷ lệ giảm là 50%, trong khi doanh thu thuần giảm 500 triệu đồng với tỷ lệ giảm là 25% là nguyên nhân chính làm lợi nhuận bán hàng giảm"],a:0,s:1}
+];
+
+/* ===== LOGIC ===== */
+var S={order:[],cur:0,answers:{},correct:0,wrong:[],mode:"all",sec:0,timer:null};
+function $(id){return document.getElementById(id);}
+function esc(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");}
+function show(id){var l=document.querySelectorAll(".scr");for(var i=0;i<l.length;i++)l[i].classList.add("hidden");$(id).classList.remove("hidden");window.scrollTo(0,0);}
+
+function tableHTML(tb){
+  var h='<div class="twrap"><table class="qt"><tr>';
+  for(var i=0;i<tb.head.length;i++){
+    var c=tb.head[i];
+    if(typeof c==="object"&&c!==null){h+='<th colspan="'+c.s+'">'+esc(c.t)+'</th>';}
+    else{h+='<th>'+esc(c)+'</th>';}
+  }
+  h+='</tr>';
+  if(tb.sub){h+='<tr>';for(var j=0;j<tb.sub.length;j++)h+='<th>'+esc(tb.sub[j])+'</th>';h+='</tr>';}
+  for(var r=0;r<tb.rows.length;r++){
+    h+='<tr>';
+    for(var k=0;k<tb.rows[r].length;k++)h+='<td'+(k===0?' class="tl"':'')+'>'+esc(tb.rows[r][k])+'</td>';
+    h+='</tr>';
+  }
+  return h+'</table></div>';
+}
+
+function getBank(){try{var b=JSON.parse(localStorage.getItem("pttc_wrong")||"[]");return Array.isArray(b)?b:[];}catch(e){return [];}}
+function setBank(a){try{localStorage.setItem("pttc_wrong",JSON.stringify(a));}catch(e){}}
+function refreshStart(){
+  var bank=getBank();
+  $("btnTrainWrong").textContent="🔄 Luyện câu đã sai ("+bank.length+")";
+  $("btnTrainWrong").disabled=bank.length===0;
+  var best=null;try{best=localStorage.getItem("pttc_best");}catch(e){}
+  $("bestLine").textContent=best?("🏆 Kỷ lục của bạn: "+best+" điểm"):"Chưa có lịch sử làm bài";
+}
+function fmt(sec){var m=Math.floor(sec/60),s=sec%60;return(m<10?"0":"")+m+":"+(s<10?"0":"")+s;}
+function startTimer(){clearInterval(S.timer);S.sec=0;$("qTimer").textContent="⏱ 00:00";S.timer=setInterval(function(){S.sec++;$("qTimer").textContent="⏱ "+fmt(S.sec);},1000);}
+
+function startQuiz(fromWrong){
+  if(fromWrong){
+    var bank=getBank();
+    if(!bank.length){alert("Chưa có câu sai nào để luyện tập. Hãy làm bài trước nhé!");return;}
+    S.order=bank.slice();
+  }else{
+    S.order=[];for(var i=0;i<QUESTIONS.length;i++)S.order.push(i);
+  }
+  S.mode=fromWrong?"wrong":"all";
+  S.cur=0;S.answers={};S.correct=0;S.wrong=[];
+  show("scr-quiz");startTimer();renderQ();
+}
+
+function renderQ(){
+  var qi=S.order[S.cur],q=QUESTIONS[qi];
+  $("qCount").textContent="Câu "+(S.cur+1)+"/"+S.order.length;
+  var lv=$("qLvl");lv.textContent=q.s?"KHÓ":"TRUNG BÌNH";lv.className="badge "+(q.s?"k":"tb");
+  $("qOK").textContent="Đúng: "+S.correct;
+  $("pFill").style.width=(S.cur/S.order.length*100)+"%";
+  var html=esc(q.t);
+  if(q.tb)html+=tableHTML(q.tb);
+  if(q.q2)html+='<div class="q2">'+esc(q.q2)+'</div>';
+  $("qText").innerHTML=html;
+  var box=$("optBox");box.innerHTML="";
+  for(var i=0;i<q.o.length;i++){
+    var b=document.createElement("button");
+    b.type="button";b.className="opt";
+    b.innerHTML='<span class="letter">'+LT[i]+'</span><span>'+esc(q.o[i])+'</span>';
+    (function(idx){b.addEventListener("click",function(){pick(idx);});})(i);
+    box.appendChild(b);
+  }
+  var fb=$("fb");fb.className="fb";fb.textContent="";
+  var nb=$("btnNext");nb.classList.add("hidden");
+  nb.textContent=(S.cur+1===S.order.length)?"✅ Hoàn thành":"Câu tiếp theo →";
+}
+
+function pick(i){
+  var qi=S.order[S.cur],q=QUESTIONS[qi];
+  var btns=$("optBox").querySelectorAll(".opt");
+  if(btns.length&&btns[0].disabled)return;
+  for(var x=0;x<btns.length;x++)btns[x].disabled=true;
+  S.answers[qi]=i;
+  var fb=$("fb");
+  if(i===q.a){
+    btns[i].classList.add("correct");S.correct++;
+    fb.className="fb ok";fb.textContent="✅ Chính xác!";
+  }else{
+    btns[i].classList.add("wrong");btns[q.a].classList.add("correct");
+    S.wrong.push(qi);
+    fb.className="fb no";fb.textContent="❌ Sai rồi! Đáp án đúng là "+LT[q.a]+".";
+  }
+  $("qOK").textContent="Đúng: "+S.correct;
+  $("pFill").style.width=((S.cur+1)/S.order.length*100)+"%";
+  var nb=$("btnNext");nb.classList.remove("hidden");
+  try{nb.scrollIntoView({behavior:"smooth",block:"nearest"});}catch(e){}
+}
+
+function onNext(){
+  if(S.cur+1<S.order.length){S.cur++;renderQ();}
+  else{finish();}
+}
+
+function updateBank(){
+  var bank=getBank(),fixed={};
+  for(var i=0;i<S.order.length;i++){var qi=S.order[i];if(S.answers[qi]===QUESTIONS[qi].a)fixed[qi]=1;}
+  bank=bank.filter(function(qi){return !fixed[qi];});
+  for(var j=0;j<S.wrong.length;j++){if(bank.indexOf(S.wrong[j])<0)bank.push(S.wrong[j]);}
+  setBank(bank);
+}
+
+function finish(){
+  clearInterval(S.timer);
+  var n=S.order.length;
+  var pct=n?(S.correct/n):0;
+  var pt=Math.round(pct*1000)/100;
+  updateBank();
+  $("rPoint").textContent=String(pt).replace(".",",");
+  $("rSub").textContent="Đúng "+S.correct+"/"+n+" câu";
+  $("rC").textContent=S.correct;
+  $("rW").textContent=n-S.correct;
+  $("rA").textContent=Math.round(pct*100)+"%";
+  $("rT").textContent=fmt(S.sec);
+  var msg;
+  if(pct===1)msg="🏆 Hoàn hảo! 100% chính xác!";
+  else if(pct>=0.8)msg="🎉 Giỏi lắm! Giữ phong độ nhé!";
+  else if(pct>=0.5)msg="💪 Khá ổn! Luyện thêm mấy câu sai nha!";
+  else msg="📚 Đừng nản, bấm Làm lại câu sai để cải thiện nhé!";
+  $("rMsg").textContent=msg;
+  var C=503,ring=$("ringFill");
+  ring.style.strokeDasharray=C;
+  ring.style.strokeDashoffset=C;
+  setTimeout(function(){ring.style.strokeDashoffset=C*(1-pct);},80);
+  var wl=$("wrongList");wl.innerHTML="";
+  if(S.wrong.length){
+    var h='<h3 class="wltitle">📌 Ôn lại '+S.wrong.length+' câu sai:</h3>';
+    for(var i=0;i<S.wrong.length;i++){
+      var qi=S.wrong[i],q=QUESTIONS[qi];
+      h+='<div class="witem"><div class="wq">Câu '+(qi+1)+": "+esc(q.t)+(q.tb?" [có bảng số liệu]":"")+'</div>';
+      if(S.answers[qi]!==undefined)h+='<div class="wa no">❌ Bạn chọn: '+LT[S.answers[qi]]+'</div>';
+      h+='<div class="wa ok">✅ Đáp án đúng: '+LT[q.a]+". "+esc(q.o[q.a])+"</div></div>";
+    }
+    wl.innerHTML=h;
+  }else{
+    wl.innerHTML='<p class="allok">🎉 Không có câu sai nào trong lượt này!</p>';
+  }
+  var bw=$("btnRedoWrong");
+  if(S.wrong.length){bw.style.display="inline-flex";bw.textContent="🔄 Làm lại câu sai ("+S.wrong.length+")";}
+  else bw.style.display="none";
+  if(S.mode==="all"&&n===96){
+    var best=parseFloat(localStorage.getItem("pttc_best")||"0");
+    if(pt>best){try{localStorage.setItem("pttc_best",String(pt));}catch(e){}}
+  }
+  show("scr-result");
+  refreshStart();
+}
+
+function showReview(){
+  var box=$("reviewBox");box.innerHTML="";
+  for(var i=0;i<S.order.length;i++){
+    var qi=S.order[i],q=QUESTIONS[qi],ua=S.answers[qi],ok=(ua===q.a);
+    var d=document.createElement("div");d.className="card revcard";
+    var h='<div class="rmeta"><span class="chip">Câu '+(qi+1)+'</span><span class="badge '+(q.s?"k":"tb")+'">'+(q.s?"KHÓ":"TRUNG BÌNH")+'</span><span class="chip '+(ok?"cok":"cno")+'">'+(ok?"ĐÚNG ✔":"SAI ✘")+'</span></div>';
+    h+='<div class="qtext">'+esc(q.t)+(q.tb?tableHTML(q.tb):"")+(q.q2?'<div class="q2">'+esc(q.q2)+"</div>":"")+"</div>";
+    for(var j=0;j<q.o.length;j++){
+      var cls="opt ropt";
+      if(j===q.a)cls+=" correct";else if(j===ua)cls+=" wrong";
+      h+='<div class="'+cls+'"><span class="letter">'+LT[j]+'</span><span>'+esc(q.o[j])+"</span></div>";
+    }
+    d.innerHTML=h;box.appendChild(d);
+  }
+  show("scr-review");
+}
+
+function exitQuiz(){
+  if(confirm("Thoát bài làm? Tiến độ lượt này sẽ bị mất.")){
+    clearInterval(S.timer);show("scr-start");refreshStart();
+  }
+}
+
+function toggleTheme(){
+  var r=document.documentElement;
+  var dark=r.getAttribute("data-theme")==="dark";
+  r.setAttribute("data-theme",dark?"light":"dark");
+  var ids=["thm1","thm2","thm3"];
+  for(var i=0;i<ids.length;i++){var b=$(ids[i]);if(b)b.textContent=dark?"🌙":"☀️";}
+  try{localStorage.setItem("pttc_theme",dark?"light":"dark");}catch(e){}
+}
+
+function init(){
+  try{
+    if(localStorage.getItem("pttc_theme")==="dark"){
+      document.documentElement.setAttribute("data-theme","dark");
+      var ids=["thm1","thm2","thm3"];
+      for(var i=0;i<ids.length;i++){var b=$(ids[i]);if(b)b.textContent="☀️";}
+    }
+  }catch(e){}
+  $("btnStart").addEventListener("click",function(){startQuiz(false);});
+  $("btnTrainWrong").addEventListener("click",function(){startQuiz(true);});
+  $("btnRedoWrong").addEventListener("click",function(){startQuiz(true);});
+  $("btnRetryAll").addEventListener("click",function(){startQuiz(false);});
+  $("btnReview").addEventListener("click",showReview);
+  $("btnBack").addEventListener("click",function(){show("scr-result");});
+  $("btnExit").addEventListener("click",exitQuiz);
+  $("btnNext").addEventListener("click",onNext);
+  var th=["thm1","thm2","thm3"];
+  for(var t=0;t<th.length;t++){(function(id){var b=$(id);if(b)b.addEventListener("click",toggleTheme);})(th[t]);}
+  document.addEventListener("keydown",function(e){
+    if($("scr-quiz").classList.contains("hidden"))return;
+    if(e.key==="Enter"){if(!$("btnNext").classList.contains("hidden"))onNext();return;}
+    var map={a:0,b:1,c:2,d:3,"1":0,"2":1,"3":2,"4":3};
+    var k=e.key.toLowerCase();
+    if(map[k]!==undefined){
+      var btns=$("optBox").querySelectorAll(".opt");
+      if(btns[map[k]]&&!btns[map[k]].disabled)pick(map[k]);
+    }
+  });
+  refreshStart();
+}
+init();
+</script>
+</body>
+</html>
